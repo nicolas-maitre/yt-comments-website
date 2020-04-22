@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Comments - In development</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --footer-size: 50px;
+        }
+
+        html {
+            text-align: center;
+            background-color: #ccc;
+        }
+
+        body {
+            text-align: left;
+            display: inline-block;
+            background-color: white;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 0;
+            padding: 0 30px;
+            min-height: 100vh;
+            max-width: 1250px;
+            position: relative;
+            padding-bottom: calc(var(--footer-size) + 20px);
+            font-size: 20px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            line-height: var(--footer-size);
+            padding: 0 30px;
+            width: 100%;
+            background-color: #666;
+            font-size: 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 30px;
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 25px;
+            color: orangered;
+        }
+
+        div {
+            background-color: transparent;
+            transition: 200ms background-color;
+        }
+
+        .highlighted {
+            background-color: yellow;
+        }
+
+        code .linkHighlight {
+            color: orangered;
+            font-weight: bold;
+        }
+
+        .repo-link>svg {
+            height: 20px;
+            margin: -5px;
+        }
+    </style>
+    <script>
+        function highlightSection(selector) {
+            let section = document.querySelector(selector);
+            section.classList.add("highlighted");
+            setTimeout(_ => {
+                section.classList.remove("highlighted");
+            }, 1000);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>YouTube-Comments.com</h1>
+    <i class="subtitle">Combat against comments censoring</i>
+    <p class="inDev">This website is currently in <a href="#development"
+            onclick="highlightSection('#development')">development</a>
+    </p>
+
+    <div id="goal">
+        <h2>Goal</h2>
+        <p>
+            The goal of this website is to provide a way to comment that is <b>not moderated by the channel owner</b>.
+            <br />
+            It could be used for example when:
+            <ul>
+                <li>The channel owner disabled comments.</li>
+                <li>The comments are censored by the channel owner.</li>
+            </ul>
+            Note that a feature to report comments will still be added to prevent illegal stuff from poping out in here.
+        </p>
+    </div>
+    <div id="usage">
+        <h2>Usage</h2>
+        <p>
+            On any youtube video, simply add <code>-comments</code> behind the <code>youtube</code> word in the url, and
+            you
+            will be redirected to the comment section.<br />
+            For example <code>https://www.<span class="linkHighlight">youtube</span>.com/watch?v=dQw4w9WgXcQ</code> will
+            become <code>https://www.<span class="linkHighlight">youtube-comments</span>.com/watch?v=dQw4w9WgXcQ</code>
+        </p>
+    </div>
+    <div id="login">
+        <h2>Login</h2>
+        <p>
+            You will be able to use your google account but you will also probably be able to connect using a
+            youtube-comments specific account.<br />
+            In the future you may even be able to log in using other OAuth enabled services.
+        </p>
+    </div>
+    <div id="development">
+        <h2>Development</h2>
+        <h3>Languages</h3>
+        <p>
+            The website will be created using pure HTML5, mostly JavaScript, without any external library. <br />
+            The server(api) will run NodeJS with the minimal amount of external code. <br />
+            Yes I like to do things myself :P
+        </p>
+        <h3>Communication</h3>
+        <p>
+            HTTP (<a href="https://en.wikipedia.org/wiki/Ajax_(programming)">AJaJ</a>) and <a
+                href="https://en.wikipedia.org/wiki/WebSocket">WebSocket</a> will be used to send info. <br />
+            Some data may be loaded with the page to improve load perormance. <br />
+        </p>
+    </div>
+    <div id="news">
+        <h2>Get news!</h2>
+        <p>
+            All the updates will be committed into the
+            <a class="repo-link" href="https://github.com/nicolas-maitre/yt-comments-website">
+                <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+                    width="32" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+                    </path>
+                </svg>project repo
+            </a><br />
+            If you have suggestions, be sure to send them at <a
+                href="mailto:contact@youtube-comments.com">contact@youtube-comments.com</a> or to open an issue in the
+            <a href="https://github.com/nicolas-maitre/yt-comments-website">github repository</a>
+        </p>
+    </div>
+    <div class="footer">
+        Please note that this website is <b>not</b> affiliated with YouTube.
+    </div>
+</body>
+
+</html>
