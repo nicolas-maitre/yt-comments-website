@@ -1,0 +1,4 @@
+DirectoryIndex temp_index.html
+# DirectoryIndex main.html
+RewriteEngine on
+RewriteRule ^(watch)/* watch.html

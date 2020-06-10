@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="stylesheet" href="/styles/watch.css" />
+</head>
+
+<body>
+    <a href="/login">Log in</a>
+    <h1>YouTube Comments</h1>
+    <div class="pageContent">
+        <h2>Comments for video "<a id="videoTitleDisplay">...</a>"</h2>
+        <iframe id="videoPreview"></iframe>
+        <section class="commentsSection">
+            <p id="Comments count">123 Comments</p>
+            <button id="commentsParametersButton">r</button>
+            <div id="commentsParametersWindow" class="none">
+                <label for="sortByInput">Sort by</label>
+                <select id="sortByInput">
+                    <option>Popularity</option>
+                    <option>Newest</option>
+                </select>
+                <label for="showAnonymousCommentsBtn">Show anonymous comments</label>
+                <input id="showAnonymousCommentsBtn" checked type="checkbox"/>
+                <label for="showYoutubeCommentsBtn">Show YouTube comments</label>
+                <input id="showYoutubeCommentsBtn" checked type="checkbox"/>
+            </div>
+            <form id="newCommentForm">
+                <textarea id="commentInput" placeholder="Add a comment" required></textarea>
+                <button type="submit">Post</button>
+                <div id="guestPostInfoBox" class="none">
+                    <!--https://developers.google.com/identity/sign-in/web/sign-in-->
+                    <button id="postLogInBtn" type="button">Log in</button> or <button id="anonymousPostBtn"
+                        type="button">post as anonymous</button><button id="anonymousInfoButton"
+                        type="button">i</button>
+                </div>
+            </form>
+            <div id="commentsContainer"></div>
+        </section>
+    </div>
+    <!--script-->
+    <script src="/scripts/utils.js"></script>
+    <script src="/scripts/watch.js"></script>
+</body>
+
+</html>
